@@ -201,13 +201,13 @@ def main(opt):
         
     bug_onnx_model=['dssm','cdssm','match_pyramid','duet','drmm']
     if model_class in bug_onnx_model:
-        print('当前版本不支持'+model_class+'模型导出')
+        print('当前版本不支持'+model_class+'模型导出成ONNX')
     else:
             if len(opt.onnx_file)!=0:
-                onnx_file='result/'+model_class+"_"+t+'.onnx'
-                exportOnnx(model,batch,onnx_file)
+                onnx_file='result/'+model_class+'.onnx'
+                exportOnnx(model,batch[0],onnx_file)
             print('随意从训练集中挑选一个batch的数据集的预测结果如下')
-            pred=loadOnnx(batch,onnx_file)
+            pred=loadOnnx(batch[0],onnx_file)
             print(pred)
     
 if __name__ == '__main__':

@@ -19,7 +19,7 @@ def loadOnnx(inputbatch,file):
     label_name = sess.get_outputs()[0].name
     
     print('='*50)
-    d=inputbatch[0]
+    d=inputbatch
     di1=d['text_left']
     di2=d['text_right']
     pred_onx = sess.run([label_name], {input_name:di1.numpy()
