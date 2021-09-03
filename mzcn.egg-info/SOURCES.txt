@@ -1,3 +1,5 @@
+LICENSE
+LICENSE.baiduyun.uploading.cfg
 README.rst
 setup.py
 mzcn/__init__.py

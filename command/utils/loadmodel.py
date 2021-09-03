@@ -195,6 +195,7 @@ def load_dssm(model_class_dict,model_class,task,model_para,preprocessor):
     model.params['mlp_activation_func'] = model_para['mlp_activation_func'] 
 
     model.build()
+    model=model.double()
     print(model)
     return model
 

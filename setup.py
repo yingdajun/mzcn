@@ -18,13 +18,13 @@ with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 install_requires = [
-    'torch >= 1.2.0',
+    'torch >= 1.5.0',
     'pytorch-transformers >= 1.1.0',
     'nltk >= 3.4.3',
     'numpy >= 1.16.4',
     'tqdm == 4.38.0',
     'dill >= 0.2.9',
-    'pandas == 0.24.2',
+    'pandas >= 1.3.1',
     'networkx >= 2.3',
     'h5py >= 2.9.0',
     'hyperopt == 0.1.2',
