@@ -186,8 +186,12 @@ def main(opt):
     epoch=js_load['epoch']
     load_trainer(optimizer_dict,optiz,model,lr,epoch,trainloader,devloader)
     
+    path="./result/model_para/"
+    if not os.path.exists(path):
+      os.makedirs(path)
+    
     t=time.strftime("%Y-%m-%d-%H:%M:%S", time.localtime()) 
-    export_model_file="./result/model_para/"+model_class+"_"+optiz+"_"+lr+"_"+epoch+"_"+t+"_model_parameter.pkl"
+    export_model_file="./result/model_para/"+str(model_class)+"_"+str(optiz)+"_"+str(lr)+"_"+str(epoch)+"_model_parameter.pkl"
     torch.save(model.state_dict(), export_model_file)
     
     for batch in devloader:
@@ -198,7 +202,7 @@ def main(opt):
     bug_onnx_model=['dssm','cdssm','match_pyramid','duet','drmm']
     if model_class in bug_onnx_model:
         print('当前版本不支持'+model_class+'模型导出')
-        else:
+    else:
             if len(opt.onnx_file)!=0:
                 onnx_file='result/'+model_class+"_"+t+'.onnx'
                 exportOnnx(model,batch,onnx_file)
